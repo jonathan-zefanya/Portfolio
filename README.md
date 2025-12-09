@@ -1,4 +1,4 @@
-# Portfolio V5  
+# Portfolio 
 Hello everyone!  
 Let me introduce myself, I’m Jonathan Nathannael Zefanya. On this occasion, I’d like to share the portfolio website project that I’ve developed.  
 
@@ -11,7 +11,7 @@ Let me introduce myself, I’m Jonathan Nathannael Zefanya. On this occasion, I�
 - Lucide  
 - Material UI  
 - SweetAlert2  
-
+- PHP (BE)
 
 
 We would appreciate it if you decide to use this project. Please include credit when using it. Thank you! 🙏  
@@ -34,7 +34,7 @@ Ensure that you have already installed:
 1. **Download this project:**  
 
    ```bash  
-   git clone https://github.com/JonathanZR/Portofolio_V5.git  
+   git clone https://github.com/Jonathan-Zefanya/Portofolio.git  
    ```  
 
 2. **Install all dependencies:**  
