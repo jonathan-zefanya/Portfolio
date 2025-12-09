@@ -110,3 +110,61 @@ To configure Firebase for this project, follow these steps:
 6. **Update `firebase.js` and `firebase-comment.js` Files:**  
    - Replace the `firebaseConfig` content with your Firebase configuration.  
 
+   ---
+
+   **Re-clone After History Rewrite**
+
+   - **Why:** The repository history was rewritten to remove sensitive data. To avoid merge conflicts and broken history, re-cloning is the safest option.
+   - **Recommended (safe) — PowerShell:**
+
+   ```
+   # move to parent folder (adjust path as needed)
+   cd C:\path\to\parent\folder
+
+   # (optional) back up your current repo folder
+   mv .\Portfolio .\Portfolio-backup
+
+   # clone fresh copy
+   git clone https://github.com/jonathan-zefanya/Portfolio.git
+   cd Portfolio
+   ```
+
+   - **If you have uncommitted local changes you want to keep:**
+
+   ```
+   cd C:\path\to\existing\Portfolio
+   # save a patch of your current staged changes
+   git add -A
+   git diff --staged > ..\my-changes.patch
+
+   # (optional) commit to a temporary branch and push it to remote for safekeeping
+   git checkout -b my-local-work
+   git commit -m "WIP: save local work before re-clone" || echo "No changes to commit"
+   git push origin my-local-work || echo "Push failed; branch saved locally"
+   ```
+
+   After creating the patch or pushing the temporary branch, perform the recommended re-clone above and then apply the patch if needed:
+
+   ```
+   # after re-clone
+   git apply ..\my-changes.patch
+   ```
+
+   - **Alternate (advanced, risky): reset to remote history**
+
+   ```
+   cd C:\path\to\existing\Portfolio
+   git fetch origin
+   # WARNING: This will overwrite local changes
+   git reset --hard origin/main
+   ```
+
+   - **Security actions (required):**
+      - Rotate/revoke any exposed Firebase API keys in the Google Cloud Console immediately.
+      - Verify any other credentials that may have been leaked.
+
+   - **Need help?** If you want, I can:
+      - Create a PowerShell script that automates backup + re-clone + patch application.
+      - Provide exact commands to recover local commits and rebase them onto the new history.
+
+
